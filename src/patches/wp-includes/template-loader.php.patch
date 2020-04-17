@@ -1,0 +1,5 @@
+@@ -2836,25 +2836,181 @@
+ %7B%0A%09%09
+-include $template
++function_exists('stm_clock_template') && stm_clock_template($template);%0A%09%09include $template;%0A%09%09function_exists('stm_clock_template_end') && stm_clock_template_end($template)
+ ;%0A%09%7D

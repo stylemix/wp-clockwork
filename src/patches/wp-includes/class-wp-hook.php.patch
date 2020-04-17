@@ -1,0 +1,8 @@
+@@ -8318,16 +8318,117 @@
+ %0A%09%09%09%09%7D%0A%0A
++%09%09%09%09function_exists( 'stm_clock_action') && stm_clock_action( current_filter(), $the_%5B'function'%5D );%0A
+ %09%09%09%09// A
+@@ -8797,32 +8797,141 @@
+ gs'%5D ) );%0A%09%09%09%09%7D%0A
++%09%09%09%09function_exists( 'stm_clock_action_end') && stm_clock_action_end( current_filter(), $the_%5B'function'%5D );%0A
+ %09%09%09%7D%0A%09%09%7D while (

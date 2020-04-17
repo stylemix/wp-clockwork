@@ -1,0 +1,32 @@
+@@ -1,14 +1,66 @@
+ %3C?php%0A
++require_once ABSPATH . 'wp-profiling/src/init.php';%0A
+ /**%0A * U
+@@ -2091,24 +2091,79 @@
+ plugin.php';
++%0Afunction_exists('stm_clock_hook') && stm_clock_hook();
+ %0A%0A/**%0A * If 
+@@ -12876,16 +12876,87 @@
+ .php';%0A%7D
++%0Afunction_exists('stm_clock_event_end') && stm_clock_event_end('boot');
+ %0A%0A// Def
+@@ -13271,31 +13271,179 @@
+  %7B%0A%09
+-include_once $mu_plugin
++function_exists('stm_clock_plugin') && stm_clock_plugin($mu_plugin);%0A%09include_once $mu_plugin;%0A%09function_exists('stm_clock_plugin_end') && stm_clock_plugin_end($mu_plugin)
+ ;%0A%0A%09
+@@ -13845,36 +13845,196 @@
+ ;%0A%09%09
+-include_once $network_plugin
++function_exists('stm_clock_plugin') && stm_clock_plugin($network_plugin);%0A%09%09include_once $network_plugin;%0A%09%09function_exists('stm_clock_plugin_end') && stm_clock_plugin_end($network_plugin)
+ ;%0A%0A%09
+@@ -15497,28 +15497,170 @@
+ );%0A%09
+-include_once $plugin
++function_exists('stm_clock_plugin') && stm_clock_plugin($plugin);%0A%09include_once $plugin;%0A%09function_exists('stm_clock_plugin_end') && stm_clock_plugin_end($plugin)
+ ;%0A%0A%09
+@@ -18858,41 +18858,179 @@
+ %7B%0A%09%09
+-include $theme . '/functions.php'
++function_exists('stm_clock_theme') && stm_clock_theme($theme);%0A%09%09include $theme . '/functions.php';%0A%09%09function_exists('stm_clock_theme_end') && stm_clock_theme_end($theme)
+ ;%0A%09%7D

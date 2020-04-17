@@ -1,0 +1,8 @@
+@@ -20937,24 +20937,103 @@
+ ( $s );%0A%09%7D%0A%0A
++%09function_exists('stm_clock_template') && stm_clock_template($_template_file);%0A
+ %09if ( $requi
+@@ -21116,10 +21116,97 @@
+ ile;%0A%09%7D%0A
++%09function_exists('stm_clock_template_end') && stm_clock_template_end($_template_file);%0A
+ %7D%0A
