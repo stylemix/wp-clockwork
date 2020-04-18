@@ -1,6 +1,6 @@
 @@ -1,14 +1,66 @@
  %3C?php%0A
-+require_once ABSPATH . 'wp-profiling/src/init.php';%0A
++require_once ABSPATH . 'wp-clockwork/src/init.php';%0A
  /**%0A * U
 @@ -2091,24 +2091,79 @@
  plugin.php';
