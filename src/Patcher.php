@@ -62,13 +62,35 @@ class Patcher
 
 	protected function formatPatchPart($text)
 	{
-		return strtr($text, [
+		$symbols = [
+			"\n" => '',
 			'%0D%0A' => "\n",
 			'%0A' => "\n",
 			'%09' => "\t",
+			'%3C' => "<",
 			'%5B' => "[",
 			'%5D' => "]",
-		]);
+			'%7B' => "{",
+			'%7D' => "}",
+		];
+		$lines = explode("\n", $text);
+		foreach ($lines as &$line) {
+			if (strpos($line, '@@') === 0) {
+				$line .= "\n";
+				continue;
+			}
+			$op = substr($line, 0, 1);
+			$line = substr($line, 1);
+			$line = strtr($line, $symbols);
+			if ($op === '-') {
+				$line = "<span style='text-decoration: line-through; background: #dbb; color: #600'>$line</span>";
+			}
+			if ($op === '+') {
+				$line = "<span style='background:#bdb; color: #060'>$line</span>";
+			}
+		}
+
+		return join('', $lines);
 	}
 
 	public function create()
