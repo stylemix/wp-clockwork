@@ -1,0 +1,32 @@
+@@ -1,14 +1,123 @@
+ %3C?php%0A
++if (file_exists(ABSPATH . 'wp-clockwork/src/init.php'))%0A%09require_once ABSPATH . 'wp-clockwork/src/init.php';%0A
+ /**%0A * U
+@@ -665,24 +665,79 @@
+ ugin.php' );
++%0Afunction_exists('stm_clock_hook') && stm_clock_hook();
+ %0A%0A/*%0A * Thes
+@@ -10839,24 +10839,96 @@
+ .php' );%0A%7D%0A%0A
++function_exists('stm_clock_event_end') && stm_clock_event_end('boot');%0A%0A
+ // Define co
+@@ -11237,33 +11237,181 @@
+  %7B%0A%09
+-include_once( $mu_plugin 
++function_exists('stm_clock_plugin') && stm_clock_plugin($mu_plugin);%0A%09include_once( $mu_plugin );%0A%09function_exists('stm_clock_plugin_end') && stm_clock_plugin_end($mu_plugin
+ );%0A%7D
+@@ -11614,38 +11614,198 @@
+ ;%0A%09%09
+-include_once( $network_plugin 
++function_exists('stm_clock_plugin') && stm_clock_plugin($network_plugin);%0A%09%09include_once( $network_plugin );%0A%09%09function_exists('stm_clock_plugin_end') && stm_clock_plugin_end($network_plugin
+ );%0A%09
+@@ -12674,30 +12674,172 @@
+ );%0A%09
+-include_once( $plugin 
++function_exists('stm_clock_plugin') && stm_clock_plugin($plugin);%0A%09include_once( $plugin );%0A%09function_exists('stm_clock_plugin_end') && stm_clock_plugin_end($plugin
+ );%0A%7D
+@@ -15675,157 +15675,575 @@
+  ) )
+-%0A%09%09include( STYLESHEETPATH . '/functions.php' );%0A%09if ( file_exists( TEMPLATEPATH . '/functions.php' ) )%0A%09%09include( TEMPLATEPATH . '/functions.php' );
++ %7B%0A%09%09function_exists('stm_clock_theme') && stm_clock_theme(str_replace(ABSPATH, '', STYLESHEETPATH));%0A%09%09include( STYLESHEETPATH . '/functions.php' );%0A%09%09function_exists('stm_clock_theme_end') && stm_clock_theme_end(str_replace(ABSPATH, '', STYLESHEETPATH));%0A%09%7D%0A%09if ( file_exists( TEMPLATEPATH . '/functions.php' ) ) %7B%0A%09%09function_exists('stm_clock_theme') && stm_clock_theme(str_replace(ABSPATH, '', TEMPLATEPATH));%0A%09%09include( TEMPLATEPATH . '/functions.php' );%0A%09%09function_exists('stm_clock_theme_end') && stm_clock_theme_end(str_replace(ABSPATH, '', TEMPLATEPATH));%0A%09%7D
+ %0A%7D%0A%0A

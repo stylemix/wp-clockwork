@@ -12,6 +12,9 @@ class Patcher
 
 	public function apply()
 	{
+		require_once BASE_DIR . 'wp-includes/version.php';
+		/** @var $wp_version $files */
+
 		$files = include __DIR__ . '/patch-files.php';
 		$dmp = new DiffMatchPatch();
 
@@ -32,6 +35,12 @@ class Patcher
 			}
 
 			$patchFile = __DIR__ . '/patches/' . $file . '.patch';
+
+			// check existence of patch file for WP v4.x
+			if (substr($wp_version, 0, 1) === '4') {
+				$patchFile4 = __DIR__ . '/patches4/' . $file . '.patch';
+				$patchFile = file_exists($patchFile4) ? $patchFile4 : $patchFile;
+			}
 			$patches = $dmp->patch_fromText(file_get_contents($patchFile));
 			$result = $dmp->patch_apply($patches, $origCode);
 
